@@ -1,46 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Constance Wu - Portfolio</title>
+    <title>Constance 儬雯 Wu - Portfolio</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400&display=swap"
+        rel="stylesheet">
+
     <style>
-        :root { --bg: #fafafa; --text: #111; --accent: #666; }
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--text); max-width: 800px; margin: 0 auto; padding: 2rem; line-height: 1.5; }
-        header { display: flex; align-items: center; gap: 2rem; margin-bottom: 3rem; }
-        img.profile { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; }
-        h1 { margin: 0 0 0.25rem 0; font-weight: 600; letter-spacing: -0.02em; }
-        p.bio { margin: 0; color: var(--accent); }
-        h2 { border-bottom: 1px solid #ddd; padding-bottom: 0.5rem; margin-top: 2rem; font-weight: 500; font-size: 1.2rem; }
-        
-        /* Grid automatically handles column wrapping for mobile */
-        .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
-        /* 16:9 aspect ratio wrapper */
-        .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 6px; background: #eee; }
-        .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
-        
-        @media (max-width: 600px) { header { flex-direction: column; text-align: center; } }
+        :root {
+            --text-primary: #fcfcfc;
+            --text-secondary: #cccccc;
+            --glass-bg: rgba(0, 0, 0, 0.4);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-primary);
+            background: linear-gradient(to bottom, rgba(15, 15, 15, 0.6), rgba(15, 15, 15, 0.9)), url('profile.jpg') no-repeat center center fixed;
+            background-size: 50%;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 6rem auto;
+            padding: 3rem;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(3rem, 8vw, 5rem);
+            font-weight: 600;
+            margin: 0 0 1rem 0;
+            letter-spacing: 0.05em;
+        }
+
+
+        .bio {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            font-weight: 300;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 500px), 1fr));
+            gap: 3rem;
+        }
+
+        /* Fluid grid system */
+        .video-card {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 1rem;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .video-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .video-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            margin: 0 0 1rem 0;
+            text-align: center;
+            color: var(--text-secondary);
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 4px;
+            background: #000;
+        }
+
+        /* 16:9 ratio enforcement */
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                background-position: top center;
+            }
+
+            /* Keeps her face/top of image in frame on phones */
+            .container {
+                padding: 2rem 1rem;
+            }
+
+            header {
+                padding: 2rem 1rem;
+                margin-bottom: 3rem;
+            }
+
+            .video-grid {
+                gap: 2rem;
+            }
+        }
     </style>
 </head>
-<body>
-    <header>
-        <img src="profile.jpg" alt="Constance Wu" class="profile">
-        <div>
-            <h1>Constance Wu</h1>
-            <p class="bio">Musician. Short biographical description here detailing primary instruments, background, and current projects.</p>
-        </div>
-    </header>
 
-    <main>
-        <h2>Selected Recordings</h2>
-        <div class="video-grid">
-            <div class="video-wrapper">
-                <iframe src="https://www.youtube.com/embed/VIDEO_ID_1" allowfullscreen></iframe> </div>
-            <div class="video-wrapper">
-                <iframe src="https://www.youtube.com/embed/VIDEO_ID_2" allowfullscreen></iframe> </div>
-            <div class="video-wrapper">
-                <iframe src="https://www.youtube.com/embed/VIDEO_ID_3" allowfullscreen></iframe> </div>
-        </div>
-    </main>
+<body>
+    <div class="container">
+        <header>
+            <h1>Constance 儬雯 Wu</h1>
+            <div class="bio">i am a soggy tonkotsu 台南美女 💁‍♀️✨💅</div>
+        </header>
+
+        <main>
+            <div class="video-grid">
+
+                <div class="video-card">
+                    <h2 class="video-title">Selected Recordings</h2>
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube-nocookie.com/embed/VZqaKk4O1pA?rel=0&modestbranding=1"
+                            title="YouTube video player"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen></iframe>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
 </body>
+
 </html>
