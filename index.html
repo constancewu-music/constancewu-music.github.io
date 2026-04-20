@@ -19,10 +19,15 @@
         body {
             margin: 0;
             padding: 0;
+            min-height: 100vh;
             font-family: 'Montserrat', sans-serif;
             color: var(--text-primary);
-            background: linear-gradient(to bottom, rgba(15, 15, 15, 0.6), rgba(15, 15, 15, 0.9)), url('profile.jpg') no-repeat center center fixed;
-            background-size: 50%;
+            background-color: #ababaf;
+            background-image: url('profile.jpg');
+            background-repeat: no-repeat;
+            background-position: right 12% center;
+            background-size: clamp(520px, 58vw, 980px) auto;
+            background-attachment: fixed;
             -webkit-font-smoothing: antialiased;
         }
 
@@ -34,9 +39,9 @@
 
         header {
             text-align: center;
-            max-width: 800px;
+            max-width: 760px;
             margin: 0 auto 6rem auto;
-            padding: 3rem;
+            padding: 2.75rem 2.5rem;
             background: var(--glass-bg);
             backdrop-filter: blur(10px);
             border-radius: 12px;
@@ -45,16 +50,17 @@
 
         h1 {
             font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(3rem, 8vw, 5rem);
+            font-size: clamp(2.4rem, 6.2vw, 4.6rem);
             font-weight: 600;
-            margin: 0 0 1rem 0;
-            letter-spacing: 0.05em;
+            margin: 0 0 0.75rem 0;
+            letter-spacing: 0.02em;
+            line-height: 1.02;
         }
 
 
         .bio {
             font-size: 1.1rem;
-            line-height: 1.8;
+            line-height: 1.7;
             color: var(--text-secondary);
             font-weight: 300;
         }
@@ -105,19 +111,32 @@
             border: 0;
         }
 
+        @media (max-width: 1024px) {
+            body {
+                background-position: 60% top;
+                background-size: cover;
+                background-attachment: scroll;
+            }
+        }
+
         @media (max-width: 768px) {
             body {
-                background-position: top center;
+                background-position: 55% top;
             }
 
-            /* Keeps her face/top of image in frame on phones */
             .container {
                 padding: 2rem 1rem;
             }
 
             header {
-                padding: 2rem 1rem;
+                padding: 2rem 1.25rem;
                 margin-bottom: 3rem;
+            }
+
+            h1 {
+                font-size: clamp(1.85rem, 7.2vw, 2.7rem);
+                letter-spacing: 0.01em;
+                line-height: 1.0;
             }
 
             .video-grid {
