@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Constance Wu - Portfolio</title>
+    <style>
+        :root { --bg: #fafafa; --text: #111; --accent: #666; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--text); max-width: 800px; margin: 0 auto; padding: 2rem; line-height: 1.5; }
+        header { display: flex; align-items: center; gap: 2rem; margin-bottom: 3rem; }
+        img.profile { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; }
+        h1 { margin: 0 0 0.25rem 0; font-weight: 600; letter-spacing: -0.02em; }
+        p.bio { margin: 0; color: var(--accent); }
+        h2 { border-bottom: 1px solid #ddd; padding-bottom: 0.5rem; margin-top: 2rem; font-weight: 500; font-size: 1.2rem; }
+        
+        /* Grid automatically handles column wrapping for mobile */
+        .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
+        /* 16:9 aspect ratio wrapper */
+        .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 6px; background: #eee; }
+        .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+        
+        @media (max-width: 600px) { header { flex-direction: column; text-align: center; } }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="profile.jpg" alt="Constance Wu" class="profile">
+        <div>
+            <h1>Constance Wu</h1>
+            <p class="bio">Musician. Short biographical description here detailing primary instruments, background, and current projects.</p>
+        </div>
+    </header>
+
+    <main>
+        <h2>Selected Recordings</h2>
+        <div class="video-grid">
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/VIDEO_ID_1" allowfullscreen></iframe> </div>
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/VIDEO_ID_2" allowfullscreen></iframe> </div>
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/VIDEO_ID_3" allowfullscreen></iframe> </div>
+        </div>
+    </main>
+</body>
+</html>
