@@ -23,12 +23,19 @@
             font-family: 'Montserrat', sans-serif;
             color: var(--text-primary);
             background-color: #ababaf;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
             background-image: url('profile.jpg');
             background-repeat: no-repeat;
             background-position: right 12% center;
             background-size: clamp(520px, 58vw, 980px) auto;
-            background-attachment: fixed;
-            -webkit-font-smoothing: antialiased;
+            z-index: -1;
+            pointer-events: none;
         }
 
         .container {
@@ -112,15 +119,14 @@
         }
 
         @media (max-width: 1024px) {
-            body {
+            body::before {
                 background-position: 60% top;
                 background-size: cover;
-                background-attachment: scroll;
             }
         }
 
         @media (max-width: 768px) {
-            body {
+            body::before {
                 background-position: 55% top;
             }
 
