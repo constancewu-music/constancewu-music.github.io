@@ -16,6 +16,12 @@
             --glass-bg: rgba(0, 0, 0, 0.4);
         }
 
+        html,
+        body {
+            height: 100%;
+            overscroll-behavior: none;
+        }
+
         body {
             margin: 0;
             padding: 0;
@@ -30,6 +36,7 @@
             content: "";
             position: fixed;
             inset: 0;
+            background-color: #ababaf;
             background-image: url('profile.jpg');
             background-repeat: no-repeat;
             background-position: right 12% center;
