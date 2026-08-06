@@ -440,14 +440,14 @@ button {
   top: 0;
   left: 0;
   right: 0;
-  height: 60vh;
+  height: 30vh;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.9) 0%, transparent 100%);
   z-index: -1;
   pointer-events: none;
 }
 
 .hero__img--performances {
-  left: 14.6vw; /* Golden ratio step from the left edge */
+  left: 0;
 }
 
 .performances-header {
