@@ -198,11 +198,28 @@ button {
   color: var(--text-secondary);
   transition: color var(--transition), transform var(--transition);
   display: inline-block;
+  position: relative;
+}
+
+.overlay-menu__link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background-color: var(--text-primary);
+  transition: width var(--transition);
 }
 
 .overlay-menu__link:hover {
   color: var(--text-primary);
   transform: scale(1.05);
+}
+
+.overlay-menu__link:hover::after {
+  width: 100%;
 }
 
 /* ===== HERO (homepage) ===== */
@@ -274,6 +291,13 @@ button {
   font-weight: 600;
   line-height: 1.05;
   letter-spacing: 0.02em;
+}
+
+.hero__name--about {
+  font-size: clamp(3.5rem, 8vw, 7rem);
+}
+
+.hero__name {
   margin-bottom: 0.4rem;
 }
 
@@ -602,6 +626,10 @@ button {
 
   .hero__name {
     font-size: clamp(2.2rem, 5.5vw, 5rem);
+  }
+
+  .hero__name--about {
+    font-size: clamp(4rem, 8vw, 6rem);
   }
 
   .content {
