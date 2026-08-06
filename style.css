@@ -8,16 +8,16 @@
 }
 
 :root {
-  --text-primary: #fcfcfc;
-  --text-secondary: #cccccc;
-  --text-muted: #999999;
-  --bg-page: #1a1a1e;
+  --text-primary: #333333;
+  --text-secondary: #555555;
+  --text-muted: #777777;
+  --bg-page: #ababaf;
   --bg-hero: #ababaf;
-  --glass-bg: rgba(0, 0, 0, 0.4);
-  --glass-bg-heavy: rgba(0, 0, 0, 0.6);
-  --glass-border: rgba(255, 255, 255, 0.1);
-  --glass-border-hover: rgba(255, 255, 255, 0.2);
-  --accent-subtle: rgba(255, 255, 255, 0.08);
+  --glass-bg: rgba(255, 255, 255, 0.4);
+  --glass-bg-heavy: rgba(255, 255, 255, 0.6);
+  --glass-border: rgba(0, 0, 0, 0.1);
+  --glass-border-hover: rgba(0, 0, 0, 0.2);
+  --accent-subtle: rgba(0, 0, 0, 0.08);
   --radius: 8px;
   --radius-lg: 12px;
   --transition: 0.3s ease;
@@ -71,22 +71,8 @@ button {
   transition: background var(--transition), box-shadow var(--transition);
 }
 
-.topbar--scrolled {
-  background: var(--glass-bg-heavy);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  box-shadow: 0 1px 0 var(--glass-border);
-}
 
-/* Drop-shadow on icons/hamburger when over hero (no glass bg) */
-.topbar:not(.topbar--scrolled) .topbar__icon svg {
-  filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.6));
-}
-.topbar:not(.topbar--scrolled) .topbar__hamburger span,
-.topbar:not(.topbar--scrolled) .topbar__hamburger span::before,
-.topbar:not(.topbar--scrolled) .topbar__hamburger span::after {
-  filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.6));
-}
+/* Removed drop-shadow on icons/hamburger for light theme */
 
 .topbar__hamburger {
   display: flex;
@@ -195,7 +181,7 @@ button {
   font-size: clamp(2rem, 5vw, 3.5rem);
   font-weight: 400;
   letter-spacing: 0.03em;
-  color: var(--text-secondary);
+  color: rgba(255, 255, 255, 0.7);
   transition: color var(--transition), transform var(--transition);
   display: inline-block;
   position: relative;
@@ -209,12 +195,12 @@ button {
   transform: translateX(-50%);
   width: 0;
   height: 2px;
-  background-color: var(--text-primary);
+  background-color: #ffffff;
   transition: width var(--transition);
 }
 
 .overlay-menu__link:hover {
-  color: var(--text-primary);
+  color: #ffffff;
   transform: scale(1.05);
 }
 
@@ -229,18 +215,7 @@ button {
   height: 100vh;
 }
 
-/* Top gradient for topbar icon visibility */
-.hero::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 100px;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4) 0%, transparent 100%);
-  z-index: -1;
-  pointer-events: none;
-}
+/* Removed top gradient */
 
 /* Solid grey background behind images */
 .hero::after {
@@ -304,30 +279,18 @@ button {
 .hero__tagline {
   font-family: var(--font-body);
   font-size: clamp(0.9rem, 1.8vw, 1.15rem);
-  font-weight: 300;
+  font-weight: 500;
   color: var(--text-secondary);
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.9);
 }
 
-/* ===== CONTENT PANEL (seamless gradient patch) ===== */
+/* ===== CONTENT PANEL ===== */
 .content-panel {
   position: relative;
-  background: rgba(0, 0, 0, 0.8);
+  background: transparent;
   padding-top: 4rem; /* Spacing before content starts */
-}
-
-/* The scrollable gradient that fades into the solid patch */
-.content-panel::before {
-  content: '';
-  position: absolute;
-  bottom: 100%; /* Sits exactly on top of the content panel */
-  left: 0;
-  right: 0;
-  height: 50vh;
-  background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.8) 100%);
-  pointer-events: none;
-  z-index: -1;
 }
 
 .content {
@@ -349,11 +312,11 @@ button {
   font-size: 1.2rem;
   line-height: 1.9;
   color: var(--text-primary);
-  font-weight: 300;
+  font-weight: 400;
   text-align: center;
   max-width: 800px;
   margin: 0 auto;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.9);
 }
 
 /* ===== NAV TILES (homepage) ===== */
@@ -378,12 +341,12 @@ button {
   padding: 0.5rem 1rem;
   font-family: var(--font-heading);
   font-size: 2rem;
-  font-weight: 400;
+  font-weight: 600;
   letter-spacing: 0.04em;
   color: var(--text-secondary);
   position: relative;
   transition: color var(--transition);
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.9);
 }
 
 .nav-tile::after {
@@ -417,9 +380,9 @@ button {
   font-size: 1.15rem;
   line-height: 1.9;
   color: var(--text-primary);
-  font-weight: 300;
+  font-weight: 400;
   margin-bottom: 2rem;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.9);
 }
 
 .about-content p:last-child {
@@ -432,17 +395,6 @@ button {
   inset: 0;
   background-color: var(--bg-hero);
   z-index: -3;
-  pointer-events: none;
-}
-
-.bg-gradient-top {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 30vh;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.9) 0%, transparent 100%);
-  z-index: -1;
   pointer-events: none;
 }
 
