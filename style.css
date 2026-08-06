@@ -427,6 +427,29 @@ button {
 }
 
 /* ===== PERFORMANCES PAGE ===== */
+.bg-solid {
+  position: fixed;
+  inset: 0;
+  background-color: var(--bg-hero);
+  z-index: -3;
+  pointer-events: none;
+}
+
+.bg-gradient-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60vh;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.9) 0%, transparent 100%);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.hero__img--performances {
+  left: 14.6vw; /* Golden ratio step from the left edge */
+}
+
 .performances-header {
   text-align: center;
   padding: 6rem 2rem 2rem;
@@ -455,11 +478,6 @@ button {
   border: 1px solid var(--glass-border);
   border-radius: var(--radius-lg);
   padding: 1.5rem;
-  transition: transform var(--transition);
-}
-
-.perf-card:hover {
-  transform: translateY(-3px);
 }
 
 .perf-card__title {
@@ -644,7 +662,8 @@ button {
   }
 
   .hero__img--home,
-  .hero__img--about {
+  .hero__img--about,
+  .hero__img--performances {
     right: 50%;
     left: auto;
     transform: translateX(50%);
