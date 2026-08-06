@@ -5,7 +5,7 @@
   var hamburger = document.querySelector('.topbar__hamburger');
   var overlay   = document.querySelector('.overlay-menu');
   var topbar    = document.querySelector('.topbar');
-  var hero      = document.querySelector('.hero, .about-hero');
+  var hero      = document.querySelector('.hero');
 
   /* ── Hamburger ── */
   function toggleMenu() {
