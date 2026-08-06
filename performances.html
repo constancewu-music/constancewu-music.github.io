@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Constance 儬雯 Wu — Violinist</title>
-  <meta name="description" content="Constance Wu is a historical performance violinist specializing in baroque and early music.">
+  <title>Performances — Constance 儬雯 Wu</title>
+  <meta name="description" content="Watch selected performances by Constance Wu, historical performance violinist.">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
   <!-- ── Top Bar ── -->
-  <div class="topbar" id="topbar">
+  <div class="topbar topbar--scrolled" id="topbar">
     <button class="topbar__hamburger" id="hamburger" aria-label="Open menu">
       <span></span>
     </button>
@@ -31,42 +31,39 @@
   <!-- ── Overlay Menu ── -->
   <nav class="overlay-menu" id="overlay-menu">
     <ul class="overlay-menu__nav">
-      <li><a class="overlay-menu__link overlay-menu__link--active" href="index.html">Home</a></li>
+      <li><a class="overlay-menu__link" href="index.html">Home</a></li>
       <li><a class="overlay-menu__link" href="about.html">About</a></li>
-      <li><a class="overlay-menu__link" href="performances.html">Performances</a></li>
+      <li><a class="overlay-menu__link overlay-menu__link--active" href="performances.html">Performances</a></li>
       <li><a class="overlay-menu__link" href="gallery.html">Gallery</a></li>
     </ul>
   </nav>
 
-  <!-- ── Hero (image stays fixed, content scrolls over) ── -->
-  <section class="hero" id="hero">
-    <img class="hero__img hero__img--home" src="profile.PNG" alt="">
-    <div class="hero__text">
-      <h1 class="hero__name">Constance 儬雯 Wu 🐰</h1>
-      <p class="hero__tagline">Historical Performance Violinist</p>
-    </div>
-  </section>
-
-  <!-- ── Content panel (scrolls over fixed hero image) ── -->
-  <div class="content-panel">
-    <div class="content">
-      <div class="bio-block">
-        <p class="bio-block__text">
-            Constance Wu is a Taiwanese baroque and modern violinist. She holds degrees from Indiana University and The Juilliard School. She loves introducing early music to new listeners and teaches students of all ages, hoping to pass along the same genuine joy and curiosity that drew her to the violin. Outside of music, she enjoys baking desserts, crocheting, discovering cozy cafés with friends, and trying to make friends with every cat she meets.
-        </p>
-      </div>
-
-      <div class="nav-tiles">
-        <a class="nav-tile" href="about.html">About</a>
-        <a class="nav-tile" href="performances.html">Performances</a>
-        <a class="nav-tile" href="gallery.html">Gallery</a>
-      </div>
-    </div>
-
-    <footer class="site-footer">
-      <p class="site-footer__copy">&copy; 2026 Constance Wu</p>
-    </footer>
+  <!-- ── Header ── -->
+  <div class="performances-header">
+    <h1>Performances</h1>
   </div>
+
+  <!-- ── Video List ── -->
+  <div class="performances-list">
+
+    <div class="perf-card">
+      <h2 class="perf-card__title">Selected Recording</h2>
+      <div class="perf-card__video">
+        <iframe src="https://www.youtube-nocookie.com/embed/VZqaKk4O1pA?rel=0&modestbranding=1"
+                title="Performance video"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen loading="lazy"></iframe>
+      </div>
+    </div>
+
+    <!-- Add more perf-cards here as YouTube URLs are provided -->
+
+  </div>
+
+  <!-- ── Footer ── -->
+  <footer class="site-footer">
+    <p class="site-footer__copy">&copy; 2026 Constance Wu</p>
+  </footer>
 
   <!-- ── Copy toast ── -->
   <div class="copy-toast" id="copy-toast">Email copied!</div>
