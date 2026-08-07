@@ -70,6 +70,41 @@ button {
   transition: background var(--transition), box-shadow var(--transition);
 }
 
+.topbar__nav {
+  display: flex;
+  gap: 2rem;
+}
+
+.topbar__nav-link {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--text-secondary);
+  position: relative;
+  transition: color var(--transition);
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.9);
+}
+
+.topbar__nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 1px;
+  background-color: var(--text-primary);
+  transition: width var(--transition);
+}
+
+.topbar__nav-link:hover {
+  color: var(--text-primary);
+}
+
+.topbar__nav-link:hover::after {
+  width: 100%;
+}
 
 /* Removed drop-shadow on icons/hamburger for light theme */
 
@@ -152,6 +187,7 @@ button {
   inset: 0;
   z-index: 150;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   background: rgba(0, 0, 0, 0.7);
@@ -207,6 +243,39 @@ button {
   width: 100%;
 }
 
+.overlay-menu__icons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  position: absolute;
+  bottom: 2rem;
+  width: 100%;
+}
+
+.overlay-menu__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  transition: background var(--transition);
+  color: rgba(255, 255, 255, 0.7);
+  background: none;
+  border: none;
+}
+
+.overlay-menu__icon:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.overlay-menu__icon svg {
+  width: 36px;
+  height: 36px;
+  fill: currentColor;
+}
+
 /* ===== HERO (homepage) ===== */
 .hero {
   position: relative;
@@ -244,7 +313,7 @@ button {
 }
 
 .hero__img--home {
-  right: 14.6vw; /* Golden ratio step from the right edge */
+  right: 5vw; /* Positioned near right edge */
 }
 
 .hero__img--about {
@@ -265,6 +334,7 @@ button {
   font-weight: 600;
   line-height: 1.05;
   letter-spacing: 0.02em;
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.9);
 }
 
 .hero__name--about {
@@ -316,6 +386,17 @@ button {
   max-width: 800px;
   margin: 0 auto;
   text-shadow: 0 0 12px rgba(255, 255, 255, 0.9);
+}
+
+.bio-block--desktop {
+  margin-bottom: 0;
+  margin-top: 2rem;
+}
+
+.bio-block--desktop .bio-block__text {
+  text-align: left;
+  max-width: 50%;
+  margin: 0;
 }
 
 /* ===== NAV TILES (homepage) ===== */
@@ -411,6 +492,7 @@ button {
   font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 600;
   letter-spacing: 0.02em;
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.9);
 }
 
 .performances-list {
@@ -468,6 +550,7 @@ button {
   font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 600;
   letter-spacing: 0.02em;
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.9);
 }
 
 .gallery-masonry {
@@ -571,9 +654,26 @@ button {
 }
 
 /* ===== RESPONSIVE ===== */
-@media (max-width: 768px) {
+@media (min-width: 769px) and (orientation: landscape) {
+  .topbar__hamburger {
+    display: none;
+  }
+  .overlay-menu__icons {
+    display: none;
+  }
+  .bio-block--mobile {
+    display: none;
+  }
+  /* For desktop, keep hero text at the bottom naturally */
+  .hero--home .hero__text {
+    bottom: 3rem;
+    top: auto;
+  }
+}
+
+@media (max-width: 768px), (orientation: portrait) {
   .hero {
-    height: 60vh;
+    height: 100vh;
   }
 
   .hero__bg {
@@ -582,7 +682,8 @@ button {
   }
 
   .hero__text {
-    bottom: 2rem;
+    bottom: auto;
+    top: 15%;
     left: 1.5rem;
     right: 1.5rem;
   }
@@ -645,6 +746,28 @@ button {
 
   .gallery-masonry img {
     margin-bottom: 0.75rem;
+  }
+
+  .performances-header {
+    height: 100vh;
+    padding-top: 10vh;
+  }
+
+  .performances-header h1,
+  .gallery-header h1 {
+    font-size: clamp(4rem, 8vw, 6rem);
+  }
+
+  .topbar__nav {
+    display: none;
+  }
+  
+  .topbar__icons {
+    display: none;
+  }
+
+  .bio-block--desktop {
+    display: none;
   }
 }
 
