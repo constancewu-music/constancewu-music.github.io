@@ -758,7 +758,10 @@ button {
     padding-top: 10vh;
   }
 
-  .performances-header h1,
+  .performances-header h1 {
+    font-size: clamp(3.5rem, 9vw, 6rem);
+  }
+
   .gallery-header h1 {
     font-size: clamp(4rem, 8vw, 6rem);
   }
