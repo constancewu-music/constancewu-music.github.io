@@ -65,8 +65,8 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: var(--nav-height);
-  padding: 0 1.5rem;
+  height: calc(var(--nav-height) + env(safe-area-inset-top));
+  padding: env(safe-area-inset-top) 1.5rem 0 1.5rem;
   transition: background var(--transition), box-shadow var(--transition);
 }
 
@@ -248,7 +248,7 @@ button {
   justify-content: center;
   gap: 1.5rem;
   position: absolute;
-  bottom: 2rem;
+  bottom: calc(2rem + env(safe-area-inset-bottom));
   width: 100%;
 }
 
@@ -643,7 +643,7 @@ button {
 /* ===== FOOTER (minimal) ===== */
 .site-footer {
   text-align: center;
-  padding: 1rem 2rem;
+  padding: 1rem 2rem calc(1rem + env(safe-area-inset-bottom)) 2rem;
 }
 
 .site-footer__copy {
