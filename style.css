@@ -66,8 +66,8 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: var(--nav-height);
-  padding: 0 1.5rem;
+  height: calc(var(--nav-height) + env(safe-area-inset-top));
+  padding: env(safe-area-inset-top) 1.5rem 0 1.5rem;
   transition: background var(--transition), box-shadow var(--transition);
 }
 
@@ -76,6 +76,42 @@ button {
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   box-shadow: 0 1px 0 var(--glass-border);
+}
+
+.topbar__nav {
+  display: flex;
+  gap: 2rem;
+}
+
+.topbar__nav-link {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--text-secondary);
+  position: relative;
+  transition: color var(--transition);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+.topbar__nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 1px;
+  background-color: var(--text-primary);
+  transition: width var(--transition);
+}
+
+.topbar__nav-link:hover {
+  color: var(--text-primary);
+}
+
+.topbar__nav-link:hover::after {
+  width: 100%;
 }
 
 /* Drop-shadow on icons/hamburger when over hero (no glass bg) */
@@ -167,6 +203,7 @@ button {
   inset: 0;
   z-index: 150;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   background: rgba(0, 0, 0, 0.7);
@@ -222,6 +259,39 @@ button {
   width: 100%;
 }
 
+.overlay-menu__icons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  position: absolute;
+  bottom: calc(2rem + env(safe-area-inset-bottom));
+  width: 100%;
+}
+
+.overlay-menu__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  transition: background var(--transition);
+  color: rgba(255, 255, 255, 0.7);
+  background: none;
+  border: none;
+}
+
+.overlay-menu__icon:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.overlay-menu__icon svg {
+  width: 36px;
+  height: 36px;
+  fill: currentColor;
+}
+
 /* ===== HERO (homepage) ===== */
 .hero {
   position: relative;
@@ -270,7 +340,7 @@ button {
 }
 
 .hero__img--home {
-  right: 14.6vw; /* Golden ratio step from the right edge */
+  right: 5vw; /* Positioned near right edge */
 }
 
 .hero__img--about {
@@ -291,6 +361,7 @@ button {
   font-weight: 600;
   line-height: 1.05;
   letter-spacing: 0.02em;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
 }
 
 .hero__name--about {
@@ -304,10 +375,11 @@ button {
 .hero__tagline {
   font-family: var(--font-body);
   font-size: clamp(0.9rem, 1.8vw, 1.15rem);
-  font-weight: 300;
+  font-weight: 500;
   color: var(--text-secondary);
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
 }
 
 /* ===== CONTENT PANEL (seamless gradient patch) ===== */
@@ -349,11 +421,22 @@ button {
   font-size: 1.2rem;
   line-height: 1.9;
   color: var(--text-primary);
-  font-weight: 300;
+  font-weight: 400;
   text-align: center;
   max-width: 800px;
   margin: 0 auto;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+}
+
+.bio-block--desktop {
+  margin-bottom: 0;
+  margin-top: 2rem;
+}
+
+.bio-block--desktop .bio-block__text {
+  text-align: left;
+  max-width: 50%;
+  margin: 0;
 }
 
 /* ===== NAV TILES (homepage) ===== */
@@ -378,7 +461,7 @@ button {
   padding: 0.5rem 1rem;
   font-family: var(--font-heading);
   font-size: 2rem;
-  font-weight: 400;
+  font-weight: 600;
   letter-spacing: 0.04em;
   color: var(--text-secondary);
   position: relative;
@@ -417,7 +500,7 @@ button {
   font-size: 1.15rem;
   line-height: 1.9;
   color: var(--text-primary);
-  font-weight: 300;
+  font-weight: 400;
   margin-bottom: 2rem;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
 }
@@ -460,6 +543,7 @@ button {
   font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 600;
   letter-spacing: 0.02em;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
 }
 
 .performances-list {
@@ -517,6 +601,7 @@ button {
   font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 600;
   letter-spacing: 0.02em;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
 }
 
 .gallery-masonry {
@@ -609,7 +694,7 @@ button {
 /* ===== FOOTER (minimal) ===== */
 .site-footer {
   text-align: center;
-  padding: 1rem 2rem;
+  padding: 1rem 2rem calc(1rem + env(safe-area-inset-bottom)) 2rem;
 }
 
 .site-footer__copy {
@@ -620,9 +705,26 @@ button {
 }
 
 /* ===== RESPONSIVE ===== */
-@media (max-width: 768px) {
+@media (min-width: 769px) and (orientation: landscape) {
+  .topbar__hamburger {
+    display: none;
+  }
+  .overlay-menu__icons {
+    display: none;
+  }
+  .bio-block--mobile {
+    display: none;
+  }
+  /* For desktop, keep hero text at the bottom naturally */
+  .hero--home .hero__text {
+    bottom: 3rem;
+    top: auto;
+  }
+}
+
+@media (max-width: 768px), (orientation: portrait) {
   .hero {
-    height: 60vh;
+    height: 100vh;
   }
 
   .hero__bg {
@@ -631,13 +733,19 @@ button {
   }
 
   .hero__text {
-    bottom: 2rem;
+    bottom: auto;
+    top: 50%;
+    transform: translateY(-50%);
     left: 1.5rem;
     right: 1.5rem;
   }
 
   .hero__name {
-    font-size: clamp(2.2rem, 5.5vw, 5rem);
+    font-size: clamp(3.2rem, 7vw, 5rem);
+  }
+
+  .hero__tagline {
+    font-size: clamp(1.2rem, 3vw, 2rem);
   }
 
   .hero__name--about {
@@ -694,6 +802,31 @@ button {
 
   .gallery-masonry img {
     margin-bottom: 0.75rem;
+  }
+
+  .performances-header {
+    height: 100vh;
+    padding-top: 10vh;
+  }
+
+  .performances-header h1 {
+    font-size: clamp(3.5rem, 9vw, 6rem);
+  }
+
+  .gallery-header h1 {
+    font-size: clamp(4rem, 8vw, 6rem);
+  }
+
+  .topbar__nav {
+    display: none;
+  }
+
+  .topbar__icons {
+    display: none;
+  }
+
+  .bio-block--desktop {
+    display: none;
   }
 }
 
